@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/bootstrap.css">
+  <title>Home</title>
+</head>
+<body>
+  <%- include('partials/header', {route: '/tasks'}) %>
+  <% if (tasks.length === 0) { %>
+   <%- include('partials/list', {title: '', layout: 4, tasks: tasks}) %>
+  <% } else { %>
+    <%- include('partials/list', {title: 'Listas de Tarefas', layout: 1, tasks: tasks}) %>
+  <% } %>
+</body>
+</html>

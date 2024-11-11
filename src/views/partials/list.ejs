@@ -1,0 +1,29 @@
+<div class="container <% if (layout === 4) { %>d-flex justify-content-center align-items-center flex-column h-75<% } %>">
+  <h1><%= title %></h1>
+  <% if (layout === 1) { %>
+    <% tasks.forEach(task => { %>
+      <div class="d-flex justify-content-between border py-2 px-4 rounded align-items-center mb-3">
+        <a href="/task/:id" class="mb-0 fs-2 text-white text-decoration-none" style="cursor: pointer;"><%= task.name %></a>
+        <button class="btn btn-danger">Excluir</button>
+      </div>
+      <button onclick="location.href = '/nova-lista'" class="btn btn-primary"> Nova Lista de Tarefas </button>
+    <% }) %>
+  <% } else if(layout === 2) { %>
+    <form action="/nova-lista" method="post">
+      <div class="d-flex justify-content-between border ps-4 rounded align-items-center mb-3">
+        <input id="name" name="name" type="text" class="mb-0 fs-2 text-white text-decoration-none border-0 w-50">
+        <button type="submit" class="btn btn-primary py-2 px-4">Criar</button>
+      </div>
+    </form>
+    <button onclick="location.href = '/tasks'" class="btn btn-secondary"> Voltar </button>
+  <% } else if (layout === 4) { %>
+      <div class="container d-flex justify-content-center align-items-center flex-column h-100">
+        <div class="d-flex flex-column align-items-center gap-2 text-center w-50">
+          <h1>Voce ainda nao possui listas de tarefas!</h1>
+          <p>Para criar uma nova lista de tarefas, clique no botao abaixo!</p>
+          <button onclick="location.href = '/nova-lista'" class="btn btn-primary"> Nova Lista de Tarefas </button>
+        </div>
+      </div>
+    <% } %>
+</div>
+<script src="/assets/scripts/scripts.js"></script>

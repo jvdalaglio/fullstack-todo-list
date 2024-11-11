@@ -13,7 +13,6 @@ const tarefaModel = {
       updatedAt: new Date()
     }
     tasksList.push(taskList);
-    console.log(tasksList)
   },
   removeTask(id) {
     tasks = tasks.filter(task => task.id === id)
